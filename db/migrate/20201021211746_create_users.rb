@@ -3,8 +3,11 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.string :first_name
       t.string :last_name
-      t.array :goals
-      t.array :goals_completed
+      t.text :current_goals
+      t.text :goals_completed
+      t.string :email
+      t.string :username 
+      t.string :password_digest
 
       t.timestamps
     end
