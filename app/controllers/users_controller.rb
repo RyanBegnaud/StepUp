@@ -1,12 +1,16 @@
 class UsersController < ApplicationController 
-    def signin
+    def new
         @user = User.new 
+    end
+
+    def create 
     end
 
     def show 
     end
 
-    def login
-        binding.pry 
+    private 
+
+    def user_params 
     end
 end 
