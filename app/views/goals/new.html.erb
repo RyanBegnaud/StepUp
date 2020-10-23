@@ -1,0 +1,13 @@
+<% logged_in? %> 
+<h1>Post a new Goal!</h1>
+<%= flash[:message] %>
+<%= form_for @goal do |f| %> 
+    <%= f.label "description of goal" %> 
+    <%= f.text_field :name %><br>
+    <%= f.label "What is your goal amount?" %> 
+    <%= f.text_field :goal_amount %><br> 
+    <%= f.label "What is the unit of measurement for your goal?" %> 
+    <%= select_tag "goal[uom]", raw("<option>Pounds</option><option>Dollars</option><option>Days</option><option>4</option>") %><br>
+    <%= f.submit %>
+    
+    <% end %>

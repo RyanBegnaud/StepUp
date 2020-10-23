@@ -1,2 +1,9 @@
 <h1>User Sign Up!</h1>
+<% if @user.errors.any? %>
+    <div class="errors_explanation", style="padding: 20px">
+        <% @user.errors.values.each do |m| %>
+            <p><%= m.to_sentence %></p>
+        <% end %>
+    </div>
+<% end %>
 <%= render 'form' %> 

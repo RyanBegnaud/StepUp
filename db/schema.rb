@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 2020_10_21_212008) do
 
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "amount"
+    t.string "name"
+    t.integer "goal_amount"
+    t.integer "goal_progress", default: 0
     t.string "uom"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,6 +1,6 @@
-<h1> Log in </h1>
-<% if @error %>
-  <p><%= @error %>!</p>
+<h1> Sign in </h1>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %>!</p>
 <% end %>
 
 <%= form_tag( method: :post) do %>

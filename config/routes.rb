@@ -4,4 +4,5 @@ Rails.application.routes.draw do
    post '/signin', to: 'sessions#create'
    get '/signup', to: 'users#new'
    resources :users
+   resources :goals 
 end

@@ -1,15 +1,56 @@
+  
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StepUp</title>
+    <title>ThePit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+
   </head>
+  <% if !current_user %>
+    <div class="topnav">
+      <%= link_to "The PIT" %>
+      <%= link_to "Most Active Show" %>
+      <%= link_to "Browse Shows" %>
+      <%= link_to "Browse Contributors" %>
+      <%= link_to "Sign Up" %>
+      <%= link_to "Log In" %>
+    </div>
+
+    <% else %>
+
+    <div class="topnav">
+      <%= link_to "My Dashboard" %>
+      <%= link_to "Browse Shows" %>
+      <%= link_to "Browse Contributors" %>
+      <%= link_to "Create A New Show" %>
+      <%= link_to "Log Out"%>
+    </div>
+
+    <% end %>
 
   <body>
     <%= yield %>
   </body>
+  
 </html>
