@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ThePit</title>
+    <title>Step UP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,11 +27,11 @@
   <link href="css/stylish-portfolio.min.css" rel="stylesheet">
 
   </head>
-  <% if !current_user %>
+  <% if logged_in? %>
     <div class="topnav">
-      <%= link_to "The PIT" %>
-      <%= link_to "Most Active Show" %>
-      <%= link_to "Browse Shows" %>
+      <%= link_to "Goals Posted on Step Up" %>
+      <%= link_to "Goals you've posted" %>
+      <%= link_to "Profile page" %>
       <%= link_to "Browse Contributors" %>
       <%= link_to "Sign Up" %>
       <%= link_to "Log In" %>

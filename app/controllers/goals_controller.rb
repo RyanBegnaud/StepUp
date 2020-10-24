@@ -6,7 +6,7 @@ class GoalsController < ApplicationController
     def create
         @goal = Goal.create(goal_params)
         @goal.user_id = current_user.id 
-        binding.pry 
+      
         if @goal.save 
             redirect_to goal_path(@goal)
         else 
@@ -16,6 +16,7 @@ class GoalsController < ApplicationController
 
     def show 
         @goal = Goal.find(params[:id])
+        @comment = Comment.new 
     end
 
     private 
