@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-   get '/', to: 'application#welcome'
+   root 'application#welcome'
    get '/signin', to: 'sessions#new'
    post '/signin', to: 'sessions#create'
    get '/signup', to: 'users#new'
-   resources :users
+   resources :users do 
+      resources :goals, only: [:show, :index]
+   end
    resources :goals 
    resources :comments
 end

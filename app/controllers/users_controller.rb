@@ -3,8 +3,7 @@ class UsersController < ApplicationController
         @user = User.new 
     end
 
-    def create 
-        binding.pry 
+    def create  
         @user = User.create(user_params)
         if @user.save 
             session[:user_id] = @user.id 

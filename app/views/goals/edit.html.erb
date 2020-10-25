@@ -1,0 +1,25 @@
+<% if logged_in? %>
+    <% if current_user.id == @goal.user_id %>
+<h1>Edit your Goal!</h1>
+<% if @goal.errors.any? %>
+    <div class="errors_explanation", style="padding: 20px">
+        <% @goal.errors.values.each do |m| %>
+            <p><%= m.to_sentence %></p>
+        <% end %>
+    </div>
+<% end %>
+<%= form_for @goal do |f| %> 
+    <%= f.label "description of goal" %> 
+    <%= f.text_field :name, value: @goal.name%><br>
+    <%= f.label "What is your goal amount?" %> 
+    <%= f.text_field :goal_amount %><br> 
+    <%= f.label "What is the unit of measurement for your goal?" %> 
+    <%= select_tag "goal[uom]", raw("<option>Pounds</option><option>Dollars</option><option>Days</option><option>4</option>") %><br>
+    <%= f.submit %>
+    <% end %>
+    <% else %> 
+    <% redirect_to "/" %>
+ <% end %>
+ <% else %>
+  <% redirect_to "/" %>
+ <% end %>
