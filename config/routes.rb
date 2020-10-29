@@ -8,4 +8,7 @@ Rails.application.routes.draw do
    end
    resources :goals 
    resources :comments
+   get '/auth/facebook/callback' => 'sessions#create'
+   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+   get 'logout', to: 'sessions#destroy'
 end

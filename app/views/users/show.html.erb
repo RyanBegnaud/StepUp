@@ -1,3 +1,4 @@
 <h1>Hello! <%= @user.username%></h1>
 <%= link_to "Post a new Goal", new_goal_path %><br>
 <%= link_to "All Goals posted onto Step Up", goals_path %> 
+<%= link_to "Sign Out", logout_path, method: "DELETE" %>

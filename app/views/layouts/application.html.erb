@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Step UP</title>
+    <title>Step Up</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,35 +16,30 @@
   <meta name="author" content="">
 
   <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-
+ 
   <!-- Custom CSS -->
-  <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+  <link href="../css/stylish-portfolio.min.css" rel="stylesheet">
 
   </head>
-  <% if logged_in? %>
+  <% if !current_user %>
     <div class="topnav">
-      <%= link_to "Goals Posted on Step Up" %>
-      <%= link_to "Goals you've posted" %>
-      <%= link_to "Profile page" %>
-      <%= link_to "Browse Contributors" %>
-      <%= link_to "Sign Up" %>
-      <%= link_to "Log In" %>
+      <%= link_to "Sign Up", signup_path %>
+      <%= link_to "Log In", signin_path %>
+      <%= link_to('Log in with Facebook!', '/auth/facebook') %>
     </div>
 
     <% else %>
 
     <div class="topnav">
-      <%= link_to "My Dashboard" %>
-      <%= link_to "Browse Shows" %>
-      <%= link_to "Browse Contributors" %>
-      <%= link_to "Create A New Show" %>
-      <%= link_to "Log Out"%>
+      <%= link_to "My Home", user_path(current_user)%>
+      <%= link_to "Post a new Goal", new_goal_path %>
+      <%= link_to "All Goals posted onto Step Up", goals_path %> 
+      <%= link_to "Log Out", logout_path, method: :delete %>
     </div>
 
     <% end %>
