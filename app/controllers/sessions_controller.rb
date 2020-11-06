@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
             if @user.password == nil 
                 @user.password = "#{@user.id}" 
                 if @user.save && @user.authenticate(@user.password)
+                    session[:user_id] = @user.id
                     redirect_to user_path(@user)
                 end
             end

@@ -1,0 +1,20 @@
+<h1>Comments On <%= @goal.name %></h1>
+<% @comments.each do |c| %>     
+   
+    <div class="comment">
+   
+        <p><%= c.content %></p>
+        </div>
+        <p>Posted by: <%= c.user.username %></p> 
+        <% if c.user == current_user %> 
+            <%= button_to "Edit your Comment", edit_comment_path(c), method: "get" %> 
+            <%= button_to "Delete your Comment", comment_path(c), method: "delete" %>
+        <% end %>
+        <br>
+        
+    <% end %>
+
+
+<br>  
+<br>
+<br>

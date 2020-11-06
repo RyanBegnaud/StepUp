@@ -1,21 +1,32 @@
+<br>
 <h1><%= goal.name %></h1>
 <p>Goal Finished at: <%= "#{goal.goal_amount} #{goal.uom}" %></p>
 <p>Currently at: <%= goal.goal_progress %> <%= goal.uom %> </p>
 <% if goal.user == current_user %> 
+    <%= button_to "Goal Page", goal_path(goal), method: "get" %>
     <%= button_to "Edit Goal", edit_goal_path(goal), method: "get" %>
-    <%= button_to "Delete Goal", goal_path(goal), method: "delete" %> 
+    <%= button_to "Delete Goal", goal_path(goal), method: "delete" %>
 <% end %>
 
 <% if goal.comments.any? %>
-<h2>Comments</h2>    
-<% goal.comments.each do |c| %> 
-        <p>Comment: <%= c.content %></p>
+<br>
+<h2>Comment Section</h2>    
+<% goal.comments.each do |c| %>     
+   
+    <div class="comment">
+   
+        <p><%= c.content %></p>
+        </div>
         <p>Posted by: <%= c.user.username %></p> 
         <% if c.user == current_user %> 
-            <%= button_to "Edit your comment" %> 
-        <% end %> 
+            <%= button_to "Edit your Comment", edit_comment_path(c), method: "get" %> 
+            <%= button_to "Delete your Comment", comment_path(c), method: "delete" %>
+        <% end %>
+        <br>
+        
     <% end %>
 <% end %>
+
 <br>  
 <p>Add new comment!</p>
 <%= form_for @comment do |c| %> 
@@ -25,3 +36,5 @@
     <%= hidden_field_tag("comment[goal_id]", goal.id) %>
     <%= c.submit "Add Comment" %>
 <% end %>
+<br>
+<br>

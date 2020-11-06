@@ -1,5 +1,7 @@
 class GoalsController < ApplicationController 
-    
+    before_action :goal_find, only: [:edit, :update, :destroy]
+    before_action :logged_in?, only: [:edit, :new, :index, :show, :create, :update, :destroy]
+
     def index 
         if params[:user_id]
             @goals = User.find(params[:user_id]).goals
@@ -15,11 +17,9 @@ class GoalsController < ApplicationController
     end 
 
     def edit 
-        @goal = Goal.find(params[:id])
     end 
 
     def update 
-        @goal = Goal.find(params[:id])
         @goal.update(goal_params)
         if @goal.save 
             redirect_to goal_path(@goal)
@@ -48,11 +48,16 @@ class GoalsController < ApplicationController
         end 
     end
 
-    def destroy
-        @goal = Goal.find(params[:id])  
+    def destroy 
+        @goal.destroy
         redirect_to goals_path
     end
+
     private 
+
+    def goal_find 
+        @goal = Goal.find(params[:id])  
+    end
 
     def goal_params 
         params.require(:goal).permit(:name, :goal_amount, :uom)

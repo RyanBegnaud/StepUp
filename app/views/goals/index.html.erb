@@ -1,4 +1,3 @@
 <%= @goals.each do |goal| %> 
     <%= render partial: 'form', locals: {goal: goal} %> 
-    <%= link_to "Goal Page", goal_path(goal) %>
 <% end %> 

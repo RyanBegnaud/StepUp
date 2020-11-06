@@ -6,6 +6,10 @@ Rails.application.routes.draw do
    resources :users do 
       resources :goals, only: [:show, :index]
    end
+   resources :goals do 
+      resources :comments, only: [:show, :new, :index, :create]
+   end
+
    resources :goals 
    resources :comments
    get '/auth/facebook/callback' => 'sessions#create'

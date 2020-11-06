@@ -18,14 +18,26 @@
  @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h2 {
+    text-decoration: underline;
+    color: black;
+}
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 .comment {
-    width: 40%;
-    height: 100px;
-    padding: 10px;
-    background-color: #d0e2bc;
-  }
+    width: 12%;
+        height: 25px;
+        padding: 10px;
+        border: 2px solid black;
+        background-color: white;
+        color:black;
+}
 
 .topnav {
     background-color:	#87CEFA;
@@ -37,7 +49,7 @@
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 12px 12px;
+    padding: 16px 15px;
     text-decoration: none;
     font-size: 17px;
   }

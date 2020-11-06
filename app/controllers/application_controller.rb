@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     helper_method :logged_in?
     helper_method :current_user
+    
     def welcome 
     end
 
@@ -8,7 +9,7 @@ class ApplicationController < ActionController::Base
         if session[:user_id] != nil 
             true 
         else 
-            flash[:notice] = "Must be logged in to see this page!"
+            flash[:notice] = "Must be logged in to see that page!"
             redirect_to '/' 
         end
     end
