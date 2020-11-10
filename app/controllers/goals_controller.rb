@@ -21,7 +21,8 @@ class GoalsController < ApplicationController
 
     def update 
         @goal.update(goal_params)
-        if @goal.save 
+        binding.pry 
+        if @goal.save && @goal
             redirect_to goal_path(@goal)
         else 
             render 'edit'

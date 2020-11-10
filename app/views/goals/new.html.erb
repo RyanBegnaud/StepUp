@@ -1,13 +1,18 @@
 <% logged_in? %> 
 <h1>Post a new Goal!</h1>
-<%= flash[:message] %>
+<% if @goal.errors.any? %>
+    <div class="errors_explanation", style="padding: 20px">
+        <% @goal.errors.values.each do |m| %>
+            <p><%= m.to_sentence %></p>
+        <% end %>
+    </div>
+<% end %>
 <%= form_for @goal do |f| %> 
     <%= f.label "description of goal" %> 
     <%= f.text_field :name %><br>
     <%= f.label "What is your goal amount?" %> 
     <%= f.text_field :goal_amount %><br> 
     <%= f.label "What is the unit of measurement for your goal?" %> 
-    <%= select_tag "goal[uom]", raw("<option>Pounds</option><option>Dollars</option><option>Days</option><option>4</option>") %><br>
+    <%= f.text_field :uom, value: "I.E. Pounds, Dollars, Days, Etc." %><br>
     <%= f.submit %>
-    
-    <% end %>
+<% end %>

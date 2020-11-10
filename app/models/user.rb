@@ -8,7 +8,5 @@ class User < ApplicationRecord
     validates :last_name, length: {minimum: 2, message: "Last name must contain at least 2 characters"} 
     validates :username, uniqueness:  { message: "A user is already registered with that Username."}
     validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, :message => 'Please enter a valid email address.'
-    validates :email, uniqueness: { message: 'A user already has that email.' }
-   
-   
+    validates :email, uniqueness: { message: 'A user already has that email.' } 
 end

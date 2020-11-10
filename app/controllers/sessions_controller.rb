@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
         @user = User.new 
     end
 
-    def create 
+    def create  
         if request.env['omniauth.auth']
             @user = User.find_or_create_by(email: request.env['omniauth.auth'][:info][:email], id: request.env['omniauth.auth'][:uid], first_name: request.env['omniauth.auth'][:info][:name].split[0], last_name: request.env['omniauth.auth'][:info][:name].split[1], username: request.env['omniauth.auth'][:info][:name]) 
             if @user.password == nil 
