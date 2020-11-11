@@ -1,1 +1,8 @@
 <h1>Hello! <%= @user.username%></h1>
+<% if @user.goals_completed %>
+    <h2>Completed Goals</h2>
+    <% @user.goals_completed.each do |goal| %>
+        <p>Goal Name: <%= goal.name %> 
+        <%= link_to "Goal Page", goal_path(goal) %>
+        <% end %> 
+    <% end %>

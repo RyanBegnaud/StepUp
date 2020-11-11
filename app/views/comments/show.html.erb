@@ -1,0 +1,11 @@
+ <br>
+    <div class="comment">
+   
+        <p><%= @comment.content %></p>
+        </div>
+        <p>Posted by: <%= @comment.user.username %></p> 
+        <% if @comment.user == current_user %> 
+            <%= button_to "Edit your Comment", edit_comment_path(@comment), method: "get" %> 
+            <%= button_to "Delete your Comment", comment_path(@comment), method: "delete" %>
+        <% end %>
+        <br>

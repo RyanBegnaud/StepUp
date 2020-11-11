@@ -13,8 +13,10 @@
     <%= f.text_field :name, value: @goal.name%><br>
     <%= f.label "What is your goal amount?" %> 
     <%= f.text_field :goal_amount %><br> 
+    <%= f.label "What is your updated progress towards your goal amount?"%>
+    <%= f.text_field :goal_progress %><br>
     <%= f.label "What is the unit of measurement for your goal?" %> 
-    <%= f.text_field :uom, value: "I.E. Pounds, Dollars, Days, Etc." %><br>
+    <%= f.text_field :uom %><br>
     <%= f.submit %>
     <% end %>
     <% else %> 

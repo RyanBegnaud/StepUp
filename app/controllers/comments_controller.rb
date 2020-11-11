@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController 
     before_action :logged_in?, only: [:edit, :new, :create, :update, :destroy]
-    before_action :comment_find, only: [:edit, :update, :destroy]
+    before_action :comment_find, only: [:edit, :update, :destroy, :show]
     
     def new 
         @comment = Comment.new
@@ -35,6 +35,8 @@ class CommentsController < ApplicationController
         redirect_to goal_path(@goal)
     end
 
+    def show 
+    end
 
     private 
 

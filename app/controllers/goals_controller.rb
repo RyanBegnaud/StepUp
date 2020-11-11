@@ -21,12 +21,7 @@ class GoalsController < ApplicationController
 
     def update 
         @goal.update(goal_params)
-        binding.pry 
-        if @goal.save && @goal
-            redirect_to goal_path(@goal)
-        else 
-            render 'edit'
-        end
+        goal_completed?(@goal)
     end
 
     def create
@@ -61,6 +56,6 @@ class GoalsController < ApplicationController
     end
 
     def goal_params 
-        params.require(:goal).permit(:name, :goal_amount, :uom)
+        params.require(:goal).permit(:name, :goal_amount, :uom, :goal_progress)
     end
 end
