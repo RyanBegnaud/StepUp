@@ -10,10 +10,25 @@
 
 <% if goal.comments.any? %>
 <br>
-<h2>Comment Section</h2>    
+ 
 <% goal.comments.each do |c| %>     
    
-    <div class="comment">
+    <ul class="children">
+  <li> 
+    <!-- Child Comment Box 1-->
+    <div class="content">
+  <h2>This Can be a Heading</h2>
+    <div class="comment_box">
+      <div class="inside_comment">
+        <div class="comment-meta">
+          <div class="commentsuser"><%= c.user.username%></div>
+         </div>
+      <div class="comment-body">
+        <p><%=c.content%></p>
+      <div class="arrow-down"></div>
+    </div>
+  </li>
+</ul>  
    
         <p><%= c.content %></p>
         </div>

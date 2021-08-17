@@ -15,6 +15,8 @@ gem 'puma', '~> 4.1'
 gem 'pry'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+gem 'bootstrap', '~> 5.0.0.beta1'
+gem 'sprockets-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -26,12 +28,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'execjs'
-gem 'therubyracer'
+gem 'mini_racer'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
