@@ -2,6 +2,7 @@
 <h1><%= goal.name %></h1>
 <p>Goal Finished at: <%= "#{goal.goal_amount} #{goal.uom}" %></p>
 <p>Currently at: <%= goal.goal_progress %> <%= goal.uom %> </p>
+<p>Posted by: <%= goal.user.username %></p>
 <% if goal.user == current_user %> 
     <%= button_to "Goal Page", goal_path(goal), method: "get" %>
     <%= button_to "Edit Goal", edit_goal_path(goal), method: "get" %>
@@ -10,25 +11,10 @@
 
 <% if goal.comments.any? %>
 <br>
- 
+<h2>Comment Section</h2>    
 <% goal.comments.each do |c| %>     
    
-    <ul class="children">
-  <li> 
-    <!-- Child Comment Box 1-->
-    <div class="content">
-  <h2>This Can be a Heading</h2>
-    <div class="comment_box">
-      <div class="inside_comment">
-        <div class="comment-meta">
-          <div class="commentsuser"><%= c.user.username%></div>
-         </div>
-      <div class="comment-body">
-        <p><%=c.content%></p>
-      <div class="arrow-down"></div>
-    </div>
-  </li>
-</ul>  
+    <div class="comment">
    
         <p><%= c.content %></p>
         </div>

@@ -7,7 +7,7 @@ class GoalsController < ApplicationController
             @goals = User.find(params[:user_id]).goals
             @comment = Comment.new  
         else 
-            @goals = Goal.all 
+            @goals = Goal.most_recent
             @comment = Comment.new 
         end
     end 
